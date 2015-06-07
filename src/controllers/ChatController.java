@@ -3,14 +3,20 @@ package controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import models.TableModel;
 
 public class ChatController {
 	
@@ -36,10 +42,24 @@ public class ChatController {
     
     @FXML
     private ImageView imgAtualizar;
+    
+    @FXML
+    private TableView<TableModel> tbOnline;
+    
+    @FXML
+    private TableColumn tcUsuarios;
+
 
     @FXML
     void atualizar(MouseEvent event) {
-    	System.out.println("Clicou na imagem.");
+    	ObservableList<TableModel> usuarios = FXCollections.observableArrayList();
+    	usuarios.add(new TableModel("wandesson"));
+    	usuarios.add(new TableModel("alex"));
+    	usuarios.add(new TableModel("luciano"));
+    	
+    	tcUsuarios.setCellValueFactory(new PropertyValueFactory("nome"));
+    	
+    	tbOnline.setItems(usuarios);
     }
     
     @FXML
@@ -58,9 +78,7 @@ public class ChatController {
     }
     
     public void initialize(URL url, ResourceBundle rb){
-    	txChat.setEditable(false);
-    	txChat.setDisable(true);
+    	
     }
-
 }
 
