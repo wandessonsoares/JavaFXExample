@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -8,8 +9,21 @@
    <children>
       <SplitPane dividerPositions="0.29523809523809524" layoutX="2.0" layoutY="2.0" prefHeight="386.0" prefWidth="422.0">
         <items>
-          <AnchorPane fx:id="apOnline" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-          <AnchorPane fx:id="apChat" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane fx:id="apOnline" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView layoutX="3.0" layoutY="37.0" prefHeight="316.0" prefWidth="113.0">
+                    <columns>
+                      <TableColumn prefWidth="111.0" text="Online" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="btPrivado" layoutX="9.0" layoutY="358.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Privado" />
+                  <ImageView fx:id="imgAtualizar" fitHeight="34.0" fitWidth="25.0" layoutX="84.0" layoutY="6.0" onMouseClicked="#atualizar" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@refresh.png" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
+          <AnchorPane fx:id="apChat" minHeight="0.0" minWidth="0.0" onMouseClicked="#atualizar" prefHeight="160.0" prefWidth="100.0">
                <children>
                   <TextField fx:id="txMensagem" layoutX="14.0" layoutY="345.0" onAction="#enviarMsgEnter" prefHeight="25.0" prefWidth="194.0" />
                   <Button fx:id="btEnviar" layoutX="216.0" layoutY="345.0" mnemonicParsing="false" onAction="#enviarMsg" prefHeight="25.0" prefWidth="62.0" text="Enviar" />

@@ -8,11 +8,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class ChatController {
 	
 	private StringBuffer msgs = new StringBuffer();
+	
+	@FXML
+    private TextArea txChat;
 
     @FXML
     private Button btEnviar;
@@ -25,10 +30,18 @@ public class ChatController {
 
     @FXML
     private TextField txMensagem;
+
+    @FXML
+    private Button btPrivado;
     
     @FXML
-    private TextArea txChat;
+    private ImageView imgAtualizar;
 
+    @FXML
+    void atualizar(MouseEvent event) {
+    	System.out.println("Clicou na imagem.");
+    }
+    
     @FXML
     void enviarMsgEnter(ActionEvent event) {
     	msgs.append("Olá! \n");
